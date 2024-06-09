@@ -1,7 +1,9 @@
 // kabab case here
 const mongoose = require("mongoose");
+const config = require("config")
 
-mongoose.connect("mongodb://localhost:27017/Scatch")
+
+mongoose.connect(`${config.get("MONGO_URI")}/Scatch`)
 .then(()=>{
     console.log("mongodb connected")
 })
