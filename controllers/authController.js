@@ -28,7 +28,8 @@ module.exports.registerUser = async function(req, res){
 
                     // setting token value in user's browser   
                     res.cookie("token", token);
-                    res.send("User Created successfully: ")
+                    // res.send("User Created successfully: ")
+                    res.redirect("/shop")
                 }
             })
         })
@@ -53,7 +54,8 @@ module.exports.loginUser = async function(req, res){
 
             let token = generateToken(user);
             res.cookie("token", token);
-            res.send("Logged in Successfully: ");
+            // res.send("Logged in Successfully: ");
+            res.redirect("/shop");
         }
         else{
             req.flash("error", "email or password is incorrect")
